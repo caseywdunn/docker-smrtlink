@@ -27,4 +27,4 @@ ENV SMRT_USER=smrtanalysis
 
 
 ENV SMRT_ROOT=/opt/pacbio/smrtlink
-RUN ./smrtlink_5.0.1.9585.run --rootdir $SMRT_ROOT
+RUN ./smrtlink_5.0.1.9585.run --rootdir $SMRT_ROOT --batch
