@@ -2,6 +2,7 @@ FROM ubuntu:16.04
 MAINTAINER Casey Dunn (casey.dunn@yale.edu)
 
 # System configuration
+RUN chmod a+w /opt
 
 # Set up access to outside world
 EXPOSE 9090
@@ -21,7 +22,6 @@ ADD https://downloads.pacbcloud.com/public/software/installers/smrtlink_5.0.1.95
 RUN unzip -P nX4dmaR% smrtlink_5.0.1.9585.zip
 
 ENV SMRT_USER=smrtanalysis
-RUN useradd -ms /bin/bash smrtanalysis sudo
 USER smrtanalysis
 
 
