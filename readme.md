@@ -25,8 +25,15 @@ Increase the limit on number of open files. From http://aws-labs.com/increase-op
 
 Reboot the amazon machine. You can run `ulimit -Sn` to see if the limit was reset. Now install docker with:
 
-sudo yum update -y
-sudo yum install -y docker
-sudo service docker start
-sudo usermod -a -G docker ec2-user
+    sudo yum update -y
+    sudo yum install -y docker
+    sudo service docker start
+    sudo usermod -a -G docker ec2-user
 
+Log out and then log in again.
+
+## Build
+
+Execute:
+
+    docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/smrtlink.git#master:docker

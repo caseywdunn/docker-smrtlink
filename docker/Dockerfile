@@ -20,6 +20,10 @@ ADD https://downloads.pacbcloud.com/public/software/installers/smrtlink_5.0.1.95
 
 RUN unzip -P nX4dmaR% smrtlink_5.0.1.9585.zip
 
-ENV SMRT_USER=root
+ENV SMRT_USER=smrtanalysis
+RUN useradd -ms /bin/bash smrtanalysis
+USER smrtanalysis
+
+
 ENV SMRT_ROOT=/opt/pacbio/smrtlink
 RUN ./smrtlink_5.0.1.9585.run --rootdir $SMRT_ROOT
