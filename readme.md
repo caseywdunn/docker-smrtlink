@@ -14,7 +14,7 @@ m4.10xlarge
 
 100 GB Storage
 
-Open port 9090
+Open port 9090 and 443
 
 Increase the limit on number of open files. From http://aws-labs.com/increase-open-files-limit/ , paste the following into `/etc/security/limits.conf` just before the line `# End of file`: 
 
@@ -27,6 +27,7 @@ Reboot the amazon machine. You can run `ulimit -Sn` to see if the limit was rese
 
     sudo yum update -y
     sudo yum install -y docker
+    sudo yum install -y git
     sudo service docker start
     sudo usermod -a -G docker ec2-user
 
@@ -36,4 +37,4 @@ Log out and then log in again.
 
 Execute:
 
-    docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/smrtlink.git#master:docker
+    docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/docker-smrtlink.git#master:docker
