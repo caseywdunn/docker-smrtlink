@@ -1,8 +1,8 @@
-# smrtlink dockerfile
+# SMRT Link Dockerfile
 
 *This is a work in progress. It might not work yet.*
 
-This respository contains everything needed to get PacBio SMRTLink software running in a Docker container. The SMRTLink download and documentation are available from PacBio at http://www.pacb.com/support/software-downloads/ . The Dockerfile presented here builds a Docker container that has a running copy of the software. You don't need to download anything from here, just make sure you have a system that meets the minimum requirements and execute the commands below to build and run the container.
+This repository contains everything needed to get PacBio [SMRT Link software](http://www.pacb.com/support/software-downloads/) running in a [Docker container](https://www.docker.com/what-docker). The [Dockerfile](https://docs.docker.com/engine/reference/builder/) presented here builds a Docker image that contains SMRT Link. You don't need to download anything from here, just make sure you have a system that meets the minimum requirements and execute the commands below to build an image and run the container.
 
 ## Host system
 
@@ -50,4 +50,12 @@ Your Amazon machine is now ready to build and run the SMRTLink Docker container.
 
 To build and run the docker container, execute:
 
-    docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/docker-smrtlink.git#master:docker
+    docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/docker-smrtlink.git#master:docker -t smrtlink:5.0.1.9585
+
+## Installation notes
+
+The SMRT Link installation is done by the script `/opt/pacbio/smrtlink/install/smrtlink-release_5.0.1.9585/admin/bin/installprompter`. This script has a few options that can simplify installation:
+
+- `--batch` executes it in non-interactive mode, so there are no user prompts
+
+- `--ignore-system-check` will proceed with installation even if there is a warning during system check
