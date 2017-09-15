@@ -5,7 +5,8 @@ MAINTAINER Casey Dunn (casey.dunn@yale.edu)
 RUN chmod a+w /opt
 
 # Set up access to outside world
-EXPOSE 9090
+EXPOSE 9090-9095
+EXPOSE 8243
 
 # Install delendencies
 RUN apt-get update && apt-get install -y \

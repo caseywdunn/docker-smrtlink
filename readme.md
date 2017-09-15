@@ -23,7 +23,7 @@ I developed this Dockerfile on an [m4.10xlarge](https://aws.amazon.com/ec2/insta
 
 - Increase the storage to 100 GB
 
-- Open port 9090 (for user access once it is running) and 443 (for git access during installation) 
+- Open ports 9090 (for web GUI), 9091 (for services), 8243 (for site acceptance), 443 (for git access during installation) 
 
 Once the instance is running, increase the open files limit. I took the approach presented at http://aws-labs.com/increase-open-files-limit/ Paste the following into `/etc/security/limits.conf` just before the line `# End of file`: 
 
@@ -51,6 +51,7 @@ Your Amazon machine is now ready to build and run the SMRTLink Docker container.
 To build and run the docker container, execute:
 
     docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/docker-smrtlink.git#master:docker -t smrtlink:5.0.1.9585
+    docker run smrtlink
 
 ## Installation notes
 
