@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     rsync \
     net-tools \
+    default-jre \
     curl
 
 # Download and install SMRT Link v5.0.1 per instructions at http://www.pacb.com/support/software-downloads/
