@@ -23,7 +23,13 @@ I developed this Dockerfile on an [m4.10xlarge](https://aws.amazon.com/ec2/insta
 
 - Increase the storage to 100 GB
 
-- Open ports 9090 (for web GUI), 9091 (for services), 8243 (for site acceptance), 443 (for git access during installation) 
+- Open the following ports: 
+
+    - 9090-9095 (for SMRT Link services)
+
+    - 8243 (for SMRT Link ) 
+
+    - 443 (for git access during installation) 
 
 Once the instance is running, increase the open files limit. I took the approach presented at http://aws-labs.com/increase-open-files-limit/ Paste the following into `/etc/security/limits.conf` just before the line `# End of file`: 
 

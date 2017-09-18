@@ -23,7 +23,7 @@ USER $SMRT_USER
 
 
 ENV SMRT_ROOT=/opt/pacbio/smrtlink
-RUN ./smrtlink_5.0.1.9585.run --rootdir $SMRT_ROOT --batch
+RUN ./smrtlink_5.0.1.9585.run --rootdir $SMRT_ROOT --batch --ignore-system-check
 
 CMD $SMRT_ROOT/admin/bin/services-start
 CMD $SMRT_ROOT/admin/bin/run-sat-services
