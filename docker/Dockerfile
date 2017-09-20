@@ -12,6 +12,7 @@ EXPOSE 8243
 RUN apt-get update && apt-get install -y \
     curl \
     default-jre \
+    locales \
     net-tools \
     unzip \
     rsync
