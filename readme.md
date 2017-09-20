@@ -29,7 +29,7 @@ I developed this Dockerfile on an [m4.10xlarge](https://aws.amazon.com/ec2/insta
 
     - 8243 (for SMRT Link ) 
 
-    - 443 (for git access during installation) 
+    - 443 (for git access via https during installation) 
 
 Once the instance is running, increase the open files limit. I took the approach presented at http://aws-labs.com/increase-open-files-limit/ Paste the following into `/etc/security/limits.conf` just before the line `# End of file`: 
 
@@ -54,10 +54,17 @@ Your Amazon machine is now ready to build and run the SMRTLink Docker container.
 
 ## Build and run
 
-To build and run the docker container, execute:
+To build the docker container, execute:
 
     docker build --ulimit nofile=500000:500000 https://github.com/caseywdunn/docker-smrtlink.git#master:docker -t smrtlink:5.0.1.9585
-    docker run smrtlink
+
+If all goes well this will finish with the line `Successfully built [id]`, where `[id]` is the image ID for the image you just built. You can then run a container based on this id with (substituting `[id]`):
+
+    docker run --ulimit nofile=500000:500000 [id]
+
+To run the container interactively, eg to debug it, you can instead run:
+
+    docker run --ulimit nofile=500000:500000 -it [id] bash
 
 ## Installation notes
 
